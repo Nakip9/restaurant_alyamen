@@ -1,0 +1,4 @@
+import type { MetadataRoute } from 'next';
+import { siteUrl, isPreview } from '@/lib/site-url';
+export const dynamic = 'force-static';
+export default function sitemap(): MetadataRoute.Sitemap { return siteUrl && !isPreview ? [{ url: siteUrl, changeFrequency: 'monthly', priority: 1 }] : []; }
